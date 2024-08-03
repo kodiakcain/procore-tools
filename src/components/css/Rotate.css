@@ -1,0 +1,15 @@
+@keyframes rotateX {
+
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(var(--rotate-angle, 360deg));
+    }
+    
+}
+
+.rotate-x {
+    animation-name: rotateX;
+    animation-fill-mode: forwards;
+}

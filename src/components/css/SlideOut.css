@@ -1,0 +1,18 @@
+/* Slide Out */
+
+@keyframes slideOut {
+
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    } to {
+        transform: translateX(var(--slide-distance, -100%));
+        opacity: 0;
+    }
+    
+}
+
+.slide-out {
+    animation: slideOut 3s ease-in;
+    animation-fill-mode: forwards;
+}

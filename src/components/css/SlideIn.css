@@ -1,0 +1,18 @@
+/* Slide In */
+
+@keyframes slideIn {
+
+    from {
+        transform: translateX(var(--slide-distance, -100%));
+        opacity: 0;
+    } to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+}
+
+.slide-in {
+    animation: slideIn 3s ease-in;
+    animation-fill-mode: forwards;
+}
