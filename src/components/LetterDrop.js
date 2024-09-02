@@ -8,7 +8,7 @@ const LetterDrop = ({
   count = 1, 
   fontSize = '2rem', 
   color = '#000' 
-}) => {
+}) => { 
   return (
     <div className="letter-drop" style={{ fontSize, color }}>
       {text.split('').map((letter, index) => (
