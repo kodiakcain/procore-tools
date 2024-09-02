@@ -1,46 +1,42 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './css/Rotate.css';
+import './css/Swing.css';
 
-const Rotate = ({ 
+const Swing = ({ 
   children, 
-  duration = '2s', 
+  duration = '1.5s', 
   delay = '0s', 
-  angle = '360deg', 
-  direction = 'x', 
-  count = '1', 
+  count = 'infinite', 
   animateCondition 
 }) => {
   const ref = useRef(null);
-  const [isRotating, setIsRotating] = useState(true);
+  const [isSwinging, setIsSwinging] = useState(true);
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.style.setProperty('--rotate-angle', angle);
-    }
-  }, [angle]);
+    
+  }, []);
 
   useEffect(() => {
-
+    
     if (typeof animateCondition === 'function') {
       const condition = animateCondition();
-      setIsRotating(condition);
+      setIsSwinging(condition);
     } else if (animateCondition !== undefined) {
-      setIsRotating(animateCondition);
+      setIsSwinging(animateCondition);
     }
   }, [animateCondition]);
 
   const style = {
     animationDuration: duration,
     animationDelay: delay,
-    animationName: isRotating ? `rotate${direction}` : 'none',
     animationIterationCount: count,
+    animationName: isSwinging ? 'swing' : 'none',
   };
 
   return (
-    <div className={`rotate-${direction}`} style={style} ref={ref}>
+    <div className='swing' style={style} ref={ref}>
       {children}
     </div>
   );
 };
 
-export default Rotate;
+export default Swing;

@@ -6,7 +6,7 @@
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-100%); 
+        transform: translateY(calc(-1 * var(--bounce-distance))); 
     }
 }
 
@@ -16,7 +16,7 @@
         transform: translateY(0);
     }
     50% {
-        transform: translateY(100%); 
+        transform: translateY(var(--bounce-distance)); 
     }
 }
 
@@ -26,7 +26,7 @@
         transform: translateX(0);
     }
     50% {
-        transform: translateX(-100%); 
+        transform: translateX(calc(-1 * var(--bounce-distance))); 
     }
 }
 
@@ -36,14 +36,12 @@
         transform: translateX(0);
     }
     50% {
-        transform: translateX(100%);
+        transform: translateX(var(--bounce-distance)); 
     }
 }
 
 /* Bounce Class */
 .bounce {
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
 

@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import './css/FadeIn.css';
+import './css/Morph.css';
 
-const FadeIn = ({ 
-  children, 
+const Morph = ({ 
+  firstChildren,
+  secondChildren, 
   duration = '2s', 
   delay = '0s', 
   count = '1', 
-  animateCondition 
+  animateCondition,
+  firstShape='square',
+  secondShape='circle', 
+  height='20px',
+  width='20px'
 }) => {
   const [isFading, setIsFading] = useState(true);
 
   const style = {
+    '--height': height,
+    '--width': width,
     animationDuration: duration,
     animationDelay: delay,
     animationIterationCount: count,
-    animationName: isFading ? 'fadeIn' : 'none', 
+    animationName: isFading ? `morph-${firstShape}-${secondShape}` : 'none',
+    animationFillMode: 'forwards', 
+    overflow: 'hidden',
   };
 
   useEffect(() => {
-
     if (typeof animateCondition === 'function') {
       setIsFading(animateCondition());
     } else if (animateCondition !== undefined) {
@@ -27,10 +35,11 @@ const FadeIn = ({
   }, [animateCondition]);
 
   return (
-    <div className="fade-in" style={style}>
-      {children}
+    <div className={`morph-${firstShape}-${secondShape}`} style={style}>
+      {firstChildren}
     </div>
   );
 };
 
-export default FadeIn;
+
+export default Morph;
